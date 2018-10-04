@@ -1,46 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './index.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./index.css";
+import cn from "classnames";
 
-
-const Radio = ({
-                   options,
-                   name,
-                   value,
-                   valueLabel,
-                   valueItem,
-                  }) => {
-    const radioOptions = options.map((option, optionIndex) => (
-        <span>
-            <input
-                key={optionIndex}
-                className="radio"
-                type="radio"
-                name={name}
-                value={option[valueItem]}
-            />
-            <span className="valueLabel">
-                {option[valueLabel]}
-            </span>
-        </span>
-
-    ));
-    return (
-        <span>
-            {radioOptions}
-        </span>
-    );
+const Radio = ({ onChange, ...rest }) => {
+  return (
+    <span>
+      <input
+        className={cn("checkbox", { disabled: rest.disabled })}
+        type="radio"
+        onChange={onChange}
+        checked={rest.checked}
+        {...rest}
+      />
+      <span className="valueLabel">{rest.value}</span>
+    </span>
+  );
 };
 
 Radio.propTypes = {
-    value: PropTypes.node,
-    options: PropTypes.array.isRequired,
-    name: PropTypes.string.isRequired
+  name: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Radio.defaultProps = {
-    valueLabel: 'title',
-    valueItem:'key'
+  disabled: false
 };
 
 export default Radio;

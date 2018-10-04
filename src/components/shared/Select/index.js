@@ -1,43 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './index.css';
+import "./index.css";
 
-const Select = ({
-                             name,
-                             valueLabel,
-                             valueItem,
-                             value,
-                             options
-                         }) => {
-    const selectOptions = options.map((option, optionIndex) => (
-        <option key={optionIndex} value={option[valueItem]}>
-            {option[valueLabel]}
-        </option>
-    ));
-    return (
-        <span className="select">
-            <select
-                className="form-control"
-                name={name}
-                value={value}
-            >
-                {selectOptions}
-            </select>
-        </span>
-    );
+const Select = ({ valueLabel, valueItem, options, selected, ...rest }) => {
+  const selectOptions = options.map((option, optionIndex) => (
+    <option
+      key={option.key}
+      value={option[valueItem]}
+      selected={option[selected]}
+    >
+      {option[valueLabel]}
+    </option>
+  ));
+  return (
+    <span className="select">
+      <select className="form-control" {...rest}>
+        {selectOptions}
+      </select>
+    </span>
+  );
 };
 Select.defaultProps = {
-    valueLabel: 'title',
-    valueItem:'key'
+  valueLabel: "title",
+  valueItem: "key",
+  selected: "chosen"
 };
 
 Select.propTypes = {
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    // onChange: PropTypes.func.isRequired,
-    options: PropTypes.array.isRequired
+  options: PropTypes.array.isRequired,
+  selected: PropTypes.string
 };
 
 export default Select;

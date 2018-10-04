@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './index.css';
+import "./index.css";
 
 const InputFormWrapper = ({ children }) => (
-    <div className="inputFormWrapper">{children}</div>
+  <div className="inputFormWrapper">{children}</div>
 );
 
 InputFormWrapper.propTypes = {
-    children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default InputFormWrapper;
