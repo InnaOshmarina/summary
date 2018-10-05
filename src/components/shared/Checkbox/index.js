@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import "./index.css";
 
-const Checkbox = ({ name, checked, onChange, ...rest }) => {
+const Checkbox = ({ checked, onChange, ...rest }) => {
   return (
     <span>
       <input
@@ -11,7 +11,6 @@ const Checkbox = ({ name, checked, onChange, ...rest }) => {
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        name={name}
         {...rest}
       />
       <span className="valueLabel">{rest.value}</span>
@@ -20,9 +19,9 @@ const Checkbox = ({ name, checked, onChange, ...rest }) => {
 };
 
 Checkbox.propTypes = {
-  name: PropTypes.string,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  checked: PropTypes.bool
 };
 
 Checkbox.defaultProps = {

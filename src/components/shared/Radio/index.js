@@ -19,9 +19,9 @@ const Radio = ({ onChange, ...rest }) => {
 };
 
 Radio.propTypes = {
-  name: PropTypes.string,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  checked: PropTypes.node
 };
 
 Radio.defaultProps = {

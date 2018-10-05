@@ -10,7 +10,14 @@ const styles = {
 
 class Tabs extends Component {
   state = {
-    active: 1
+    active: 1,
+    UAE: true,
+    Britain: true,
+    France: true,
+    Singapore: true,
+    Belarus: true,
+    format: "test1",
+    nominal: "30"
   };
 
   clickTab = (event, key) => {
@@ -19,12 +26,23 @@ class Tabs extends Component {
     // console.log(key);
   };
 
+  onChangeCheckbox = e =>
+    this.setState({ [e.target.name]: !this.state[e.target.name] });
+
+  onChangeRadio = e => this.setState({ [e.target.name]: e.target.value });
+
   render() {
     const data = [
       {
         key: 1,
         title: "Gifts",
-        content: <Gift {...this.state} />
+        content: (
+          <Gift
+            {...this.state}
+            onChangeCheckbox={this.onChangeCheckbox}
+            onChangeRadio={this.onChangeRadio}
+          />
+        )
       },
       {
         key: 2,
