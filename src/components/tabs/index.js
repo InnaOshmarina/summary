@@ -11,13 +11,24 @@ const styles = {
 class Tabs extends Component {
   state = {
     active: 1,
-    UAE: true,
-    Britain: true,
-    France: true,
-    Singapore: true,
-    Belarus: true,
-    format: "test1",
-    nominal: "30"
+    generalInformation: {
+      amount: "10"
+    },
+    responsibilityForEvent: {
+      responsibility: "Марченко"
+    },
+    gift: {
+      certificate: true,
+      flowers: true,
+      cake: true,
+      test: true,
+      test2: true,
+      gippo: true,
+      belmarket: true,
+      evroopt: true,
+      korona: true,
+      rublevkij: true
+    }
   };
 
   clickTab = (event, key) => {
@@ -26,10 +37,27 @@ class Tabs extends Component {
     // console.log(key);
   };
 
-  onChangeCheckbox = e =>
-    this.setState({ [e.target.name]: !this.state[e.target.name] });
+  onChangeCheckbox = e => {
+    this.setState({
+      gift: {
+        ...this.state.gift,
+        [e.target.name]: !this.state.gift[e.target.name]
+      }
+    });
+  };
 
-  onChangeRadio = e => this.setState({ [e.target.name]: e.target.value });
+  onChangeRadio = e => {
+    this.setState({
+      generalInformation: {
+        ...this.state.generalInformation,
+        [e.target.name]: e.target.value
+      },
+      responsibilityForEvent: {
+        ...this.state.responsibilityForEvent,
+        [e.target.name]: e.target.value
+      }
+    });
+  };
 
   render() {
     const data = [

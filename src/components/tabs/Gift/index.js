@@ -8,7 +8,7 @@ import TextInput from "../../shared/TextInput/index";
 import Checkbox from "../../shared/Checkbox/index";
 import Label from "../../shared/Label/index";
 import Radio from "../../shared/Radio/index";
-import { docsGift, docsNovumRegione } from "../../../mock/dataGifts";
+import { docsGift } from "../../../mock/dataGifts";
 import Row from "../../shared/Grids/Row";
 
 class Gift extends React.PureComponent {
@@ -17,51 +17,52 @@ class Gift extends React.PureComponent {
       <div>
         <InfoSection
           icon={<i className="fas fa-align-justify" />}
-          title="Gift lorem ipsum"
+          title="Общая информация"
         >
           <Row>
             <div className="col-md-4">
               <InputForm
-                title="Количество детей:"
+                title="Количество детей в группе:"
                 element={
                   <TextInput placeholder="Кол-во детей" name="numberChildren" />
                 }
               />
               <InputForm
-                title="Has eu dicat novum regione:"
-                element={
-                  <Select name="novumRegione" options={docsNovumRegione} />
-                }
+                title="Выберите, с каким праздником будете поздравлять воспитателей:"
+                element={<Select name="gift" options={docsGift} />}
               />
             </div>
 
             <div className="col-md-8">
-              <Label label="Номинал сертификата(в рублях):" offer />
+              <Label
+                label="Сумма денежных средств от каждого ребенка(в рублях):"
+                offer
+              />
 
               <Radio
-                name="nominal"
+                name="amount"
+                value="10"
+                checked={this.props.generalInformation.amount === "10"}
+                onChange={this.props.onChangeRadio}
+              />
+              <Radio
+                name="amount"
                 value="15"
                 onChange={this.props.onChangeRadio}
               />
               <Radio
-                name="nominal"
+                name="amount"
                 value="20"
                 onChange={this.props.onChangeRadio}
               />
               <Radio
-                name="nominal"
+                name="amount"
+                value="25"
+                onChange={this.props.onChangeRadio}
+              />
+              <Radio
+                name="amount"
                 value="30"
-                checked={this.props.nominal === "30"}
-                onChange={this.props.onChangeRadio}
-              />
-              <Radio
-                name="nominal"
-                value="40"
-                onChange={this.props.onChangeRadio}
-              />
-              <Radio
-                name="nominal"
-                value="50"
                 onChange={this.props.onChangeRadio}
               />
             </div>
@@ -70,60 +71,71 @@ class Gift extends React.PureComponent {
 
         <InfoSection
           icon={<i className="fas fa-paperclip" />}
-          title="Timeam audire scaevola ei"
+          title="Ответственность за мероприятие"
         >
-          <Label label="Выберите формат тетради" offer />
+          <Label label="Кто из родительского комитета ответственный:" offer />
 
-          <Radio name="format" value="A4" onChange={this.props.onChangeRadio} />
-          <Radio name="format" value="A5" onChange={this.props.onChangeRadio} />
           <Radio
-            name="format"
-            value="test1"
-            checked={this.props.format === "test1"}
+            name="responsibility"
+            value="Ошмарина"
             onChange={this.props.onChangeRadio}
           />
           <Radio
-            name="format"
-            value="test2"
+            name="responsibility"
+            value="Марченко"
+            checked={
+              this.props.responsibilityForEvent.responsibility === "Марченко"
+            }
             onChange={this.props.onChangeRadio}
           />
           <Radio
-            name="format"
-            value="test3"
-            disabled
+            name="responsibility"
+            value="Павлова"
             onChange={this.props.onChangeRadio}
           />
         </InfoSection>
 
         <InfoSection
           icon={<i className="fas fa-address-card" />}
-          title="Pseudo-Latin text"
+          title="Подарок"
         >
           <div className="col-md-6">
+            <Label label="Что входит в подарок:" offer />
+
+            <Checkbox
+              name="certificate"
+              value="Сертификат"
+              checked={this.props.gift.certificate}
+              onChange={this.props.onChangeCheckbox}
+            />
+            <Checkbox name="flowers" value="Цветы" />
+            <Checkbox
+              name="cake"
+              value="Торт"
+              checked={this.props.gift.cake}
+              onChange={this.props.onChangeCheckbox}
+            />
+            <Checkbox name="test" value="test" />
+            <Checkbox name="test2" value="test2" disabled />
             <InputForm
               title="Vim natum doctus:"
               element={<TextInput placeholder="Vim natum doctus" name="test" />}
             />
-            <Label label="Какие страны Вы посещали?" offer />
+            <Label label="Приобретение подарка в торговой сети:" offer />
 
             <Checkbox
-              name="UAE"
-              value="ОАЭ"
-              checked={this.props.UAE}
+              name="gippo"
+              value="Гиппо"
+              checked={this.props.gift.gippo}
               onChange={this.props.onChangeCheckbox}
             />
-            <Checkbox name="Britain" value="Великобритания" />
-            <Checkbox
-              name="France"
-              value="Франция"
-              checked={this.props.France}
-              onChange={this.props.onChangeCheckbox}
-            />
-            <Checkbox name="Singapore" value="Сингапур" />
-            <Checkbox name="Belarus" value="Беларусь" disabled />
+            <Checkbox name="belmarket" value="Белмаркет" />
+            <Checkbox name="evroopt" value="Евроопт" />
+            <Checkbox name="korona" value="Корона" />
+            <Checkbox name="rublevkij" value="Рублевский" />
             <InputForm
-              title="Выберите, с каким праздником будете поздравлять воспитателей:"
-              element={<Select name="gift" options={docsGift} />}
+              title="Vim natum doctus:"
+              element={<TextInput placeholder="Vim natum doctus" name="test" />}
             />
           </div>
         </InfoSection>
