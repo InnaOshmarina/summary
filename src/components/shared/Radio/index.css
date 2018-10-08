@@ -1,5 +1,9 @@
-.radio {
+.radio, .radio input {
     cursor: pointer;
+}
+
+.disabled, .disabled input {
+    cursor: not-allowed;
 }
 
 .valueLabel {

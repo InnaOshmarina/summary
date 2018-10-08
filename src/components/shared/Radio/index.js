@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import "./index.css";
 import cn from "classnames";
 
-const Radio = ({ onChange, ...rest }) => {
+const Radio = ({ onChange, checked, disabled, ...rest }) => {
   return (
-    <span>
+    <label className={cn("radio", { disabled: disabled })}>
       <input
-        className={cn("checkbox", { disabled: rest.disabled })}
         type="radio"
         onChange={onChange}
-        checked={rest.checked}
+        checked={checked}
+        disabled={disabled}
         {...rest}
       />
       <span className="valueLabel">{rest.value}</span>
-    </span>
+    </label>
   );
 };
 

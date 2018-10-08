@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import "./index.css";
 
-const Checkbox = ({ checked, onChange, ...rest }) => {
+const Checkbox = ({ checked, onChange, disabled, ...rest }) => {
   return (
-    <span>
+    <label className={cn("checkbox", { disabled: disabled })}>
       <input
-        className={cn("checkbox", { disabled: rest.disabled })}
         type="checkbox"
         checked={checked}
         onChange={onChange}
+        disabled={disabled}
         {...rest}
       />
       <span className="valueLabel">{rest.value}</span>
-    </span>
+    </label>
   );
 };
 

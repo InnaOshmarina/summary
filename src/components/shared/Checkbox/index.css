@@ -1,7 +1,7 @@
-.checkbox {
+.checkbox, .checkbox input {
     cursor: pointer;
 }
 
-.disabled {
+.disabled, .disabled input {
     cursor: not-allowed;
 }

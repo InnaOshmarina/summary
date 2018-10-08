@@ -4,20 +4,25 @@ import Gift from "./Gift/index";
 import Jersey from "./Jersey/index";
 import Notebook from "./Notebook/index";
 
-const styles = {
-  fontSize: "1.5rem"
+import "./index.css";
+
+export const componentNames = {
+  generalInfo: "generalInfo",
+  responsibilityForEvent: "responsibilityForEvent",
+  buyingGift: "buyingGift"
 };
 
 class Tabs extends Component {
   state = {
     active: 1,
-    generalInformation: {
+    [componentNames.generalInfo]: {
       amount: "10"
     },
-    responsibilityForEvent: {
-      responsibility: "Марченко"
+    [componentNames.responsibilityForEvent]: {
+      fundraising: "Марченко",
+      buyingGifts: "Ошмарина"
     },
-    gift: {
+    [componentNames.buyingGift]: {
       certificate: true,
       flowers: true,
       cake: true,
@@ -37,23 +42,19 @@ class Tabs extends Component {
     // console.log(key);
   };
 
-  onChangeCheckbox = e => {
+  onChangeCheckbox = (e, componentName) => {
     this.setState({
-      gift: {
-        ...this.state.gift,
-        [e.target.name]: !this.state.gift[e.target.name]
+      [componentName]: {
+        ...this.state[componentName],
+        [e.target.name]: !this.state[componentName][e.target.name]
       }
     });
   };
 
-  onChangeRadio = e => {
+  onChangeRadio = (e, componentName) => {
     this.setState({
-      generalInformation: {
-        ...this.state.generalInformation,
-        [e.target.name]: e.target.value
-      },
-      responsibilityForEvent: {
-        ...this.state.responsibilityForEvent,
+      [componentName]: {
+        ...this.state[componentName],
         [e.target.name]: e.target.value
       }
     });
@@ -114,12 +115,10 @@ class Tabs extends Component {
     });
 
     return (
-      <div className="container">
+      <div className="tabs container">
         <div className="row mt-5">
           <div className="col-md-12 m-auto">
-            <ul className="nav nav-pills nav-fill" style={styles}>
-              {tabs}
-            </ul>
+            <ul className="nav nav-pills nav-fill">{tabs}</ul>
             <div className="mt-5">{content}</div>
           </div>
         </div>

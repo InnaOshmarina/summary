@@ -3,24 +3,11 @@ import PropTypes from "prop-types";
 
 import "./index.css";
 
-const TextInput = ({ name, placeholder, size, type }) => {
-  return (
-    <span>
-      <input
-        className="form-control"
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        size={size}
-      />
-    </span>
-  );
+const TextInput = ({ type, ...rest }) => {
+  return <input className="textInput form-control" type={type} {...rest} />;
 };
 
 TextInput.propTypes = {
-  name: PropTypes.string,
-  placeholder: PropTypes.string,
-  size: PropTypes.number,
   type: PropTypes.string
 };
 
