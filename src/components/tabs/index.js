@@ -9,7 +9,8 @@ import "./index.css";
 export const componentNames = {
   generalInfo: "generalInfo",
   responsibilityForEvent: "responsibilityForEvent",
-  buyingGift: "buyingGift"
+  buyingGift: "buyingGift",
+  infoAboutJerseys: "infoAboutJerseys"
 };
 
 class Tabs extends Component {
@@ -33,6 +34,13 @@ class Tabs extends Component {
       evroopt: true,
       korona: true,
       rublevkij: true
+    },
+    [componentNames.infoAboutJerseys]: {
+      physicalCulture: true,
+      specSportingEvents: true,
+      rhythm: true,
+      maxPrice: "10",
+      logotype: "Д/с №348 гр.4"
     }
   };
 
@@ -76,7 +84,13 @@ class Tabs extends Component {
       {
         key: 2,
         title: "Jerseys",
-        content: <Jersey />
+        content: (
+          <Jersey
+            {...this.state}
+            onChangeCheckbox={this.onChangeCheckbox}
+            onChangeRadio={this.onChangeRadio}
+          />
+        )
       },
       {
         key: 3,

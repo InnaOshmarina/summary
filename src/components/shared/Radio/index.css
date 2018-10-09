@@ -4,6 +4,7 @@
 
 .disabled, .disabled input {
     cursor: not-allowed;
+    color: #6c6c6c;
 }
 
 .valueLabel {

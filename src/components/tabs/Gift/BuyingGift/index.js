@@ -7,7 +7,6 @@ import Label from "../../../shared/Label";
 import Checkbox from "../../../shared/Checkbox";
 import InputForm from "../../../shared/InputForm";
 import TextInput from "../../../shared/TextInput";
-import { componentNames } from "../../index";
 
 class BuyingGift extends PureComponent {
   render() {
