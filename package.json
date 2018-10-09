@@ -13,7 +13,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eslint": "eslint ./src"
+    "eslint": "eslint ./src",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
@@ -24,6 +25,14 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.1.1",
     "prettier": "^1.14.3"
+  },
+  "lint-staged": {
+    "*.{js, jsx}": [
+      "node_modules/.bin/eslint",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
