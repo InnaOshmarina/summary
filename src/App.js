@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-const Italy = 28;
+const yourAge = 29;
 
 class App extends PureComponent {
   render() {
@@ -11,14 +11,12 @@ class App extends PureComponent {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">
-            Welcome to React
-            {Italy}
-          </h1>
+          <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>Your age is {yourAge}</p>
       </div>
     );
   }

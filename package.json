@@ -30,7 +30,6 @@
   },
   "lint-staged": {
     "*.{js, jsx}": [
-      "node_modules/.bin/eslint",
       "prettier --write",
       "git add"
     ]
