@@ -13,17 +13,9 @@
         "some": ["nesting", "id"]
       }
     }],
-    "import/no-extraneous-dependencies": [2, {
-      "devDependencies": [
-        "**/*.story.js",
-        "**/*.test.js"
-      ]
-    }],
     "jsx-a11y/no-static-element-interactions": 0,
     "import/prefer-default-export": 0,
-    "react/jsx-filename-extension": 0,
-    "react/no-unused-prop-types": 2,
-    "react/prop-types": 2
+    "react/jsx-filename-extension": 0
   }
 }
 
